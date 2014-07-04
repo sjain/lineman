@@ -1,27 +1,15 @@
 <head>
-  <title>lineman</title>
+  <title>Queue</title>
 </head>
 
 <body>
-  <h1>Add Patient</h1>
-  {{> patients}}
-  {{> form_add_patient}}
+  {{> main}}
 </body>
 
-<template name="patients">
-  <ul>
-    {{#each patients}}
-      <li class="a_patient">{{name}}</li>
-    {{/each}}
-  </ul>
-</template>
-
-
-<template name="form_add_patient">
-  <div id="form_add_patient">
-    <label>Patient Name:</label>
-    <input type="text" id="patient_name" value=""/>
-    <br/>
-    <input type="button" class="add_patient" value="Add" />
-  </div>
+<template name="main">
+  {{#if logged_in}}
+    {{> users}}
+  {{else}}
+    {{> login}}
+  {{/if}}
 </template>

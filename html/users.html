@@ -1,0 +1,9 @@
+<template name="users">
+  <div id="users">
+    <ul>
+    {{#each users}}    
+      <li class="user">{{username}},{{email}},{{id}}</li>
+    {{/each}}
+    </ul>
+  </div>
+</template>
