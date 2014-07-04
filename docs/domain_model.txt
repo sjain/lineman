@@ -1,0 +1,29 @@
+Patient
+  display_id:
+  name:
+  has_many: consultations  
+
+Consultation
+  belongs_to patient
+  belongs_to consultation_type
+  status:
+
+Doctor
+  name
+  belongs_to consultation_type
+  
+
+ConsultationType (blood draw, cardio)
+  name:
+
+ConsultationQueue
+  belongs_to consultation_type
+  has_many doctors
+  has_many patients
+  has_one: volunteer
+    
+Volunteer
+  email:
+  name:
+  has_one consultation_queue
+  
