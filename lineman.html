@@ -3,11 +3,25 @@
 </head>
 
 <body>
-  {{> hello}}
+  <h1>Add Patient</h1>
+  {{> patients}}
+  {{> form_add_patient}}
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name="patients">
+  <ul>
+    {{#each patients}}
+      <li class="a_patient">{{name}}</li>
+    {{/each}}
+  </ul>
+</template>
+
+
+<template name="form_add_patient">
+  <div id="form_add_patient">
+    <label>Patient Name:</label>
+    <input type="text" id="patient_name" value=""/>
+    <br/>
+    <input type="button" class="add_patient" value="Add" />
+  </div>
 </template>
