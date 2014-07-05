@@ -19,9 +19,21 @@ Template.users.users = function() {
   var users_view = [];
   users.forEach(function(u) {
     Logger.debug("user", u);
-    var values = {username: u.username, email: u.emails['0'].address, id: u._id};
+    if(u.emails) {
+      var email = u.emails['0'].address;
+    } else {
+      var email = '';
+    }
+    var values = {username: u.username, email: email, id: u._id};
     Logger.debug("values", values);
     users_view.push(values);
   });
   return users_view;
 };
+
+
+// Meteor.logout()
+// Meteor.loginWithPassword("email", "password")
+// Account.createUser()
+// Meteor.users.find().forEach(function(u){console.log(u);});
+// Accounts.createUser({password: "passss", email: "shivika@gmail.com", username: "shivika"},function(u){console.log(u);});
